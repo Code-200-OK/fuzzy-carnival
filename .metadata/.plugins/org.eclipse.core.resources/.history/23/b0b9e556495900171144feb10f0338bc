@@ -1,0 +1,29 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.TreeMap;
+
+public class Hello {    
+	public static void main(String[] args){
+		char[] a = {};
+		String[] b = {};
+		int[] c = {};
+		int[][] d = {
+				{100,200},
+				{200,1300},
+				{1000,1250},
+				{2000,3200}
+		};
+
+		System.out.println(task());
+
+	}
+	public void show(int[][] a){
+		for(int i=0;i<a.length;i++){
+			System.out.println(a[0]+"::::::"+a[1]);
+		}
+	}
+	public static int task(){
+		return 5;
+	}
+}
+

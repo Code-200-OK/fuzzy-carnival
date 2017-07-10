@@ -1,0 +1,50 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.TreeMap;
+
+public class Hello {    
+	public static void main(String[] args){
+		char[] a = {'A','A','A','A','A','A','B','C','D','E','F','G'};
+		String[] b = {"",""};
+		
+		System.out.println(fun(a,2));
+
+	}
+	public static int fun(char[] tasks, int n){
+        int[][] m = new int[26][2];
+        for(int i=0;i<tasks.length;i++){
+            m[tasks[i]-'A'][0]++;
+        }
+        Arrays.sort(m,new Comparator<int[]>(){
+        	public int compare(int[] a,int[] b){
+        		return a[1]-a[0];
+        	}
+        });
+        int cpos = 0;
+        int total = tasks.length;
+        int minpos,min;
+        while(total>0){
+            minpos = 0;
+            min = m[0][1];
+            for(int i=1;i<26;i++){
+                if(m[i][0]>0 && m[i][1] <= cpos){
+                    minpos = i;
+                    min = m[i][1];
+                }
+            }
+            if(min<=cpos){
+                m[minpos][1]=cpos+n+1;
+                cpos++;
+            }
+            else{
+                m[minpos][1] = min+n+1;
+                cpos = min+1;
+                
+            }
+            total--;
+            m[minpos][0]--;
+        }
+        return cpos;
+    }
+}
+

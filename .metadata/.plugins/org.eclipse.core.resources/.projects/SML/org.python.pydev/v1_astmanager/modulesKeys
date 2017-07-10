@@ -1,0 +1,7 @@
+MODULES_MANAGER_V2
+ReutersParser|/home/jatsakthi/workspace/SML/ReutersParser.py
+SpamSVMSet|/home/jatsakthi/workspace/SML/SpamSVMSet.py
+all|/home/jatsakthi/workspace/SML/all.py
+news|/home/jatsakthi/workspace/SML/news.py
+spam|/home/jatsakthi/workspace/SML/spam.py
+spamSVM|/home/jatsakthi/workspace/SML/spamSVM.py

@@ -1,0 +1,16 @@
+
+public class PalindromePerumtation_4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static boolean isPermutationOfPalindrome(String s){
+	
+		Map<Character,Integer> counts = new HashMap<>();
+		for(
+	
+	}
+
+}

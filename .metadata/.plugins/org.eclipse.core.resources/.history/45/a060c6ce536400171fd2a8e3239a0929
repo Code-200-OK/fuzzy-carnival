@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Hello {
+	public Hello(){
+		
+	}
+	public static void main(String[] args){public class Solution {
+	    public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+	        List<my> mine = new ArrayList<my>();
+	        for(List<Integer> off: special){
+	            int total =off.get(off.size()-1);
+	            int actual = 0;
+	            for(int i  =0;i<off.size()-1;i++){
+	                if(needs.get(i)<off.get(i)) break;
+	                actual += (price.get(i)*off.get(i));
+	            }
+	            if(actual-total > 0)
+	                mine.add(new my(off,actual-total,total));
+	        }
+	        Collections.sort(mine,new Comparator<my>(){
+	           public int compare(my a, my b){
+	               return b.profit - a.profit;
+	           } 
+	        });
+	        int bought = 0;
+	        int mprice = 0;
+	        while(bought < needs.size()){
+	            mprice += mine.get(0).total;
+	            List<Integer> it = mine.get(0).ite;
+	            for(int i=0;i<it.size();i++){
+	                needs.set(i,needs.get(i)-it.get(i));
+	                if(needs.get(i)==0) bought++;
+	                Collections.sort(mine,new Comparator<my>(){
+	                   public int compare(my a, my b){
+	                       return b.profit - a.profit;
+	                   } 
+	                });
+	            }
+	            mine.remove(0);
+	        }
+	        System.out.println(mprice);
+	        
+	    }
+	}
+	}
+}
+class my{
+    public List<Integer> ite;
+    public int profit;
+    public int total;
+    public my(List<Integer> a, int prof,int tot){
+        ite = new ArrayList<Integer>();
+        ite.addAll(a);
+        profit = prof;
+        total = tot;
+    }
+}

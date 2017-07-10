@@ -1,0 +1,31 @@
+import ListNode;
+
+public class RemoveDups_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ListNode head = new ListNode(1);
+		ListNode one = new ListNode(2);
+		ListNode two = new ListNode(2);
+		ListNode thr = new ListNode(3);
+		ListNode fou = new ListNode(2);
+		ListNode fiv = new ListNode(1);
+		ListNode six = new ListNode(5);
+		head.next = one;
+		one.next = two;
+		two.next = thr;
+		thr.next = fou;
+		fou.next = fiv;
+		fiv.next = six;
+		removeDups(head);
+		show(head); 
+	}
+	public static void show(ListNode Node){
+		while(Node != null){
+			System.out.println(Node.val+"-->");
+			Node = Node.next;		
+		}	
+	}
+
+}

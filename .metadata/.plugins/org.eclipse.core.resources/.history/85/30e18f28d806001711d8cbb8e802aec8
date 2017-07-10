@@ -1,0 +1,22 @@
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Hello {
+	
+	public static void main(String[] args) {
+		System.out.println(conv(1,"abcdef"));
+		
+	}
+    
+    public static String conv(int pos, String word){
+        if(word.length()<=3) return word;
+        int total = word.length();
+        int start = pos;
+        start++;
+        int len = total-start-1;
+        if(len==1)return word;
+        return word.substring(0,start) + Integer.toString(len)+word.charAt(total-1);
+    }
+
+}

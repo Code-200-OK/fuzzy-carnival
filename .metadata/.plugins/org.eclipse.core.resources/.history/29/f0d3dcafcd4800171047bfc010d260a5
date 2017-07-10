@@ -1,0 +1,15 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Hello {
+	public static void main(String[] args){
+		String x= "Hello (Java)";
+		Matcher m = Pattern.compile("\\((.*?)\\)").matcher(x);
+		Matcher ma = Pattern.compile("(.*?)\\((.*?)\\)").matcher(x);
+		while(m.find())
+		System.out.println(m.group(1));
+		
+	}
+	
+}
+

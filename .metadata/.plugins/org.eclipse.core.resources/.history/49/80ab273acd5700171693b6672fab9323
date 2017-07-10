@@ -1,0 +1,4 @@
+
+public class FullStackException extends Exception {
+	super("The stack is full")
+}

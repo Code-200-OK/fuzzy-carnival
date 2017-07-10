@@ -1,0 +1,39 @@
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s = "abcdefg";
+		int k=2;
+		StringBuilder ans = new StringBuilder();
+        StringBuilder torev = new StringBuilder();
+        int done=0;
+        boolean half = true;
+        for(int i=0;i<s.length();i++){
+            if(done<k){
+                torev.append(s.charAt(i));
+                done++;
+            }
+            else if(done==k){
+            	System.out.println("Met"+half);
+                if(half)
+                    torev.reverse();
+                ans.append(torev);
+                half = !half;
+                done = 1;
+                torev.setLength(0);
+                torev.append(s.charAt(i));
+            }
+            
+        }
+        if(done==k){
+                if(half)
+                    torev.reverse();
+                ans.append(torev);
+                half = !half;
+                done = 1;
+            }
+        System.out.println(ans.toString());
+	}
+
+}

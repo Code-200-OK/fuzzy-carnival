@@ -1,0 +1,68 @@
+package com.amazonaws.samples;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClient;
+import com.amazonaws.services.sqs.model.SendMessageRequest;
+import com.amazonaws.services.sqs.model.SendMessageResult;
+
+public class cloudPi {
+	private static AmazonSQS sqs;
+	private static String myQueueUrl;
+	private static String message;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("sakthi");
+		try{
+			message = args[0];
+		}
+		catch(Exception e){
+			throw new AmazonClientException("Give an Input",e);
+		}
+		
+		AWSCredentials credentials = null;
+		BasicAWSCredentials awsCreds = null;
+		try {
+			awsCreds = new BasicAWSCredentials("access_key_id", "secret_key_id");
+		} catch (Exception e) {
+			throw new AmazonClientException(
+					"Cannot load the credentials from the credential profiles file. " +
+							"Please make sure that your credentials file is at the correct " +
+							"location (/home/ec2-user/.aws/credentials), and is in valid format.",
+							e);
+		}
+		sqs = new AmazonSQSClient(awsCreds);
+		//sqs = new AmazonSQSClient(credentials);
+		sqs.setEndpoint("https://sqs.us-west-2.amazonaws.com");
+		/*Region usWest2 = Region.getRegion(Regions.US_WEST_2);
+		sqs.setRegion(usWest2);*/
+		List<String> queueUrls = new ArrayList<String>();
+		try{
+			queueUrls = sqs.listQueues("CloudPiRequestQueue.fifo").getQueueUrls();
+			myQueueUrl = queueUrls.get(0);
+		} catch(Exception e){
+			throw new AmazonClientException("Problem with queue initialization",e);
+		}
+		System.out.println("Queue URL Obtained:"+ myQueueUrl);
+		System.out.println("Success in sending Message to queue: " + sendMessage()[1]);
+
+	}
+	public static String[] sendMessage(){
+		System.out.println("Sending Message...");
+		String[] answer = new String[2];
+		SendMessageRequest sendMessageRequest = new SendMessageRequest(myQueueUrl,message);
+		sendMessageRequest.setMessageGroupId("messageGroup1");
+		//sendMessageRequest.setMessageDeduplicationId("1");
+		SendMessageResult sendMessageResult = sqs.sendMessage(sendMessageRequest);
+		answer[0] = sendMessageResult.getSequenceNumber();
+        answer[1] = sendMessageResult.getMessageId();
+        return answer;
+	}
+
+}

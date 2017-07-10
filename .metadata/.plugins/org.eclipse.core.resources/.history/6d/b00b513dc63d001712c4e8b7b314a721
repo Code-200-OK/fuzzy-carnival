@@ -1,0 +1,25 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class Hello {
+	static int groups;
+    static int total;
+    static Set<Integer> done;
+	public static void main(String[] args) {
+		int a = {1,3,2,2,5,2,3,7};
+		findLHS(a);	
+		}
+	public static int findLHS(int[] nums) {
+        int end = nums.length-1;
+        int start =0;
+        int cur = 0;
+        while(start<end){
+            cur = start;
+            if(Math.abs(nums[cur]-nums[end])==1)
+                return end-cur+1;
+            cur = cur == end-1 ? ++start : ++cur;
+        }
+        return 0;
+    }
+
+}

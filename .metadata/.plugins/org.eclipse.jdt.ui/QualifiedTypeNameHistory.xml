@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.amazonaws.services.sqs.model.ListQueuesResult"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.Instance"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.DescribeInstancesRequest"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.AmazonEC2ClientBuilder"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.DescribeInstancesResult"/>
+<fullyQualifiedTypeName name="java.util.Base64"/>
+<fullyQualifiedTypeName name="com.amazonaws.util.Base64"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.mapreduce.Mapper"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSeparatorUI"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+</qualifiedTypeNameHistroy>

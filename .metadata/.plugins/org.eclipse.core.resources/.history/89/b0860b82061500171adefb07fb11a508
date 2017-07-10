@@ -1,0 +1,44 @@
+from pandas import DataFrame
+import pandas as pd
+import numpy
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+
+def build_data_frame(path):
+    rows = []
+    index = []
+    df = pd.read_csv(path,usecols=['file','lyrics','mood'],index_col='file')
+    return df
+
+def create_tfidf_training_data(corpus):
+    """
+    Creates a document corpus list (by stripping out the
+    class labels), then applies the TF-IDF transform to this
+    list. 
+
+    The function returns both the class label vector (y) and 
+    the corpus token/feature matrix (X).
+    """
+
+    # Create the TF-IDF vectoriser and transform the corpus
+    vectorizer = TfidfVectorizer(min_df=1)
+    X = vectorizer.fit_transform(corpus)
+    return X
+
+
+if __name__ == "__main__":
+    HAPPY = 1
+    SAD = 0
+    
+    trainLocation = "/home/jatsakthi/SML/classification/Document Classification/Songs/Dataset/train_lyrics_1000.csv"
+    testLocation = "/home/jatsakthi/SML/classification/Document Classification/Songs/Dataset/valid_lyrics_200.csv"
+    
+    data = DataFrame({'lyrics': [], 'mood': []})
+    data = data.append(build_data_frame(trainLocation))
+    data = data.reindex(numpy.random.permutation(data.index))
+    
+    tot = create_tfidf_training_data(data['lyrics'].values)
+    
+    
+    
+    

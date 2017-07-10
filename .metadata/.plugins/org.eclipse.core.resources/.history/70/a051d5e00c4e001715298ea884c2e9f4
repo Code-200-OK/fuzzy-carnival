@@ -1,0 +1,21 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class PalindromePerumtation_4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String a = "";
+		for(char t: a){
+			System.out.println(t);
+		}
+	}
+	
+	public static boolean isPermutationOfPalindrome(String s){
+	
+		Map<Character,Integer> counts = new HashMap<>();
+		for(
+	
+	}
+
+}

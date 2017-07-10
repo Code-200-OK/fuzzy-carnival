@@ -1,0 +1,47 @@
+
+public static class MyQueue<T>{
+	private static Node<T> first = null;
+	private static Node<T> last = null;
+	private static class Node<T>{
+		T item;
+		Node next;
+		Node(T it){
+			item = it;
+			next = null;		
+		}	
+	}
+	public static T peek(){
+		if(first == null) throw Exception();
+		return first.item;	
+	}
+	public static void add(T value){
+		Node n = new Node(value);
+		if(last == null){
+			first = n;
+			last = n;
+		}
+		else{
+			last.next = n;
+			last = n;
+		}
+	}
+	public static void remove(){
+		if(first == null) throw Exception("asdfsd");
+		first = first.next;	
+	}
+	public static boolean isEmpty(){
+		return first == null;	
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyQueue<Integer> a = new MyQueue<>();
+		a.add(3);
+		a.add(5);
+		a.add(6);
+		System.out.println(a.peek());
+		a.remove();
+		System.out.println(a.peek());
+	}
+
+}

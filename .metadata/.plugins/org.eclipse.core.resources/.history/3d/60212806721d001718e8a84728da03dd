@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+	<application>shardedcounter-162818</application>
+	<version>new2</version>
+	<instance-class>F2</instance-class>
+	<automatic-scaling>
+		<min-idle-instances>3</min-idle-instances>
+		<max-idle-instances>automatic</max-idle-instances>
+		<min-pending-latency>30ms</min-pending-latency>
+		<max-pending-latency>automatic</max-pending-latency>
+	</automatic-scaling>
+	
+    <threadsafe>true</threadsafe>
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    </system-properties>
+    
+    <static-files>
+    	<include path="**"/>
+    	<include path="**.nocache.*" expiration="0s"/>
+    	<include path="**.cache.*" expiration="365d"/>
+    	<exclude path="**.gwt.rpc"/>
+    </static-files>
+</appengine-web-app>

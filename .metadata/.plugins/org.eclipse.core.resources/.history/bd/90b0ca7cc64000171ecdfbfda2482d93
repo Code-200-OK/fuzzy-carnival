@@ -1,0 +1,45 @@
+package edu.asu.diging.tutorial.spring.service;
+
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+
+public class Play {
+	@Autowired
+	private Sender send;
+	final static Logger logger = Logger.getLogger(Play.class);
+	boolean started = false;
+
+	public void toss(){
+		String message = "TOSS";
+		try {
+			byte[] bytesOfMessage = message.getBytes("UTF-8");
+			
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] array = md.digest(message.getBytes());
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < array.length; ++i)
+		          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+			send.send("question", sb.toString());
+			
+		} catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@KafkaListener(id="test.listener.id", topics = "answer")
+	public void receiveMessage(String message) {
+	    logger.info("Received topic: " + message);
+		System.out.println("Received topic: " + message);
+		if(!started){
+			int tossChoice = Integer.parseInt(message);
+			
+		}
+	}
+	
+}

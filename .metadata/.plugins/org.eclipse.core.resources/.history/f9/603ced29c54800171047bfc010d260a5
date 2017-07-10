@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Hello {
+	public static void main(String[] args){
+		
+	}
+	
+	public static String[] findRestaurant(String[] list1, String[] list2) {
+        Map<String,Integer> l1 = new HashMap<String,Integer>();
+        for(int i=0;i<list1.length;i++){
+            l1.put(list1[i],i);
+        } 
+        int min = Integer.MAX_VALUE;
+        List<Integer> pos = new ArrayList<Integer>();
+        String temp;
+        int t;
+        for(int i=0;i<list2.length;i++){
+            temp = list2[i];
+            if(l1.containsKey(temp)){
+                t = l1.get(temp);
+                if(min==t+i){
+                    pos.add(i);
+                }
+                else if(min>t+i){
+                    min = t+i;
+                    pos.clear();
+                    pos.add(i)
+                }
+            }
+        }
+        String[] answer = new String[pos.size()];
+        for(int i=0;i<pos.size();i++)
+            answer[i] = list1[pos.get(i)];
+        return answer;
+        
+    }
+}
+

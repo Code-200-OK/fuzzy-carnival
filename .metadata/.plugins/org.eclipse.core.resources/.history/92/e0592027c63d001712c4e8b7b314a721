@@ -1,0 +1,15 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class Hello {
+	static int groups;
+    static int total;
+    static Set<Integer> done;
+	public static void main(String[] args) {
+		String a = "this is a strange";
+		StringBuilder b = new StringBuilder(a);
+		b.reverse();
+		System.out.println(b.toString());
+	}
+
+}

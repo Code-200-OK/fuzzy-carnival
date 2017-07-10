@@ -1,0 +1,71 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/jatsakthi/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Sentimental Analysis/com.python.pydev.analysis/v2_indexcache
+NaiveBayesMovies|1490920520897020000|/home/jatsakthi/workspace/Sentimental Analysis/NaiveBayesMovies.py
+countAll|1491340897477840000|/home/jatsakthi/workspace/Sentimental Analysis/countAll.py
+nltkLearn|1490917972681073000|/home/jatsakthi/workspace/Sentimental Analysis/nltkLearn.py
+pos|1490920721018718000|/home/jatsakthi/workspace/Sentimental Analysis/pos.py
+find|1491513393162531000|/home/jatsakthi/workspace/Sentimental Analysis/find.py
+revert|1491513330922161000|/home/jatsakthi/workspace/Sentimental Analysis/revert.py
+topsongs|1490941062775452000|/home/jatsakthi/workspace/Sentimental Analysis/topsongs.py
+downloadSongNames|1491442167740326000|/home/jatsakthi/workspace/Sentimental Analysis/downloadSongNames.py
+twitterAnalysis|1491018477800748000|/home/jatsakthi/workspace/Sentimental Analysis/twitterAnalysis.py
+-- END DISKCACHE
+-- START DICTIONARY
+12
+2=NaiveBayesMovies
+8=countAll
+6=nltkLearn
+10=Splitter
+9=pos
+3=find
+12=Splitter.__init__
+1=revert
+5=topsongs
+4=downloadSongNames
+11=POSTagger
+7=twitterAnalysis
+-- END DICTIONARY
+-- START TREE 1
+33
+aut|1|author!11@
+cla|1|classifier!19@
+con|1|content!27@
+dow|3|downloadLyrics!26@downloadLyrics!34@downloadLyrics!42@
+err|1|error!27@
+exa|1|example_text!51@
+ext|1|extract_features!58@
+fea|2|featureList!59@featureVector!59@
+fil|3|file!43@file!35@file!11@
+fou|1|found!27@
+get|2|getStopWordList!58@getFeatureVector!58@
+ign|1|ignoreFile!67@
+inp|1|inpTweets!59@
+lin|4|lines!27@lines!11@line!11@lineNumber!27@
+loc|6|LOC!59@LOC!67@LOC!11@LOC!43@LOC!35@LOC!27@
+nbc|1|NBClassifier!59@
+neg|3|negids!19@negfeats!19@negcutoff!19@
+pos|6|posfeats!19@POSTagger!73@posids!19@poscutoff!19@postagger!75@pos_tagged_sentences!75@
+pro|3|processedTestTweet!59@processTweet!58@processedTweet!59@
+rea|1|read_files!66@
+rep|1|replaceTwoOrMore!58@
+sen|1|sentiment!59@
+son|1|song!11@
+spl|3|splitted_sentences!75@Splitter!73@splitter!75@
+sto|1|stopWords!59@
+tes|2|testfeats!19@testTweet!59@
+tex|1|text!75@
+tra|2|trainfeats!19@training_set!59@
+tt|1|tt!67@
+twe|2|tweet!59@tweets!59@
+url|3|URL!35@URL!43@URL!27@
+wor|1|word_feats!18@
+wri|3|writeLyrics!42@writeLyrics!34@writeLyrics!26@
+-- END TREE
+-- START TREE 2
+4
+__i|2|__init__!10&74@__init__!11&74@
+nlt|2|nltk_tokenizer!12&75@nltk_splitter!12&75@
+pos|1|pos_tag!11&74@
+spl|1|split!10&74@
+-- END TREE

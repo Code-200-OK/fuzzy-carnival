@@ -1,0 +1,19 @@
+package edu.asu.diging.tutorial.spring.service;
+
+import org.apache.log4j.Logger;
+import org.springframework.kafka.annotation.KafkaListener;
+
+public class Receiver {
+	final static Logger logger = Logger.getLogger(Receiver.class);
+	boolean started = false;
+	@KafkaListener(id="test.listener.id", topics = "answer")
+	public void receiveMessage(String message) {
+	    logger.info("Received topic: " + message);
+		System.out.println("Received topic: " + message);
+		if(!started){
+			System.out.println(HomeController);
+			int tossChoice = Integer.parseInt(message);
+			
+		}
+	}
+}

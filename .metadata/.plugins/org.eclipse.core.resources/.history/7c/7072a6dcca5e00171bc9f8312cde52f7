@@ -1,0 +1,86 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Hello {
+    
+    public Hello() {
+    	
+    }
+    public static void put(int id, String timestamp) {
+        
+    }
+    public static void main(String[] args){
+    	System.out.println(judgeSquareSum(5));
+    }
+}
+class Second{
+	List<Integer> values;
+	public Second(){
+		values = new ArrayList<Integer>();
+	}
+	public void insert(int i){
+		values.add(i);
+	}
+}
+class Minute{
+	Second[] seconds;
+	public Minute(){
+		seconds = new Second[60];
+	}
+	public void insert(int pos, int i){
+		if(seconds[pos-1]==null) seconds[pos-1] = new Second();
+		seconds[pos-1].insert(i);
+	}
+}
+class Hour{
+	Minute[] minutes;
+	public Hour(){
+		minutes = new Minute[60];
+	}
+	public void insert(int minpos, int secpos, int i){
+		if(minutes[minpos-1]==null) minutes[minpos-1] = new Minute();
+		minutes[minpos-1].insert(secpos,i);
+	}
+}
+class Day{
+	Hour[] Hours;
+	public Day(){
+		Hours = new Hour[60];
+	}
+	public void insert(int hourpos, int minpos, int secpos, int i){
+		if(Hours[hourpos-1]==null) Hours[hourpos-1] = new Hour();
+		Hours[hourpos-1].insert(minpos,secpos,i);
+	}
+}
+class Month{
+	Day[] Days;
+	public Month(){
+		Days = new Day[60];
+	}
+	public void insert(int daypos, int hourpos, int minpos, int secpos, int i){
+		if(Days[daypos-1]==null) Days[daypos-1] = new Day();
+		Days[daypos-1].insert(hourpos,minpos,secpos,i);
+	}
+}
+class Year{
+	Month[] Months;
+	public Year(){
+		Months = new Month[60];
+	}
+	public void insert(int monthpos, int daypos, int hourpos, int minpos, int secpos, int i){
+		if(Months[monthpos-1]==null) Months[monthpos-1] = new Month();
+		Months[monthpos-1].insert(daypos,hourpos,minpos,secpos,i);
+	}
+}
+class Log{
+	Year[] Years;
+	public Log(){
+		Years = new Year[60];
+	}
+	public void insert(int yearpos, int monthpos, int daypos, int hourpos, int minpos, int secpos, int i){
+		if(Years[yearpos-1]==null) Years[yearpos-1] = new Year();
+		Years[yearpos-1].insert(monthpos,daypos,hourpos,minpos,secpos,i);
+	}
+}

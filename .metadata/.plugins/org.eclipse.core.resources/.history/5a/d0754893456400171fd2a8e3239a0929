@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Hello {
+	
+}
+
+class Log{
+	Map<String,Log> children;
+	String data;
+	public Log(String d){
+		data=d;
+		children = new TreeMap<String,Log>();
+	}
+}

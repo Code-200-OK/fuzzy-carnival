@@ -1,0 +1,95 @@
+package chapter4_Trees_Graphs;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class RandomNode {
+	
+	public mynode root;
+	
+	public RandomNode(){
+		root = null;	
+	}
+	
+	public static boolean insert(int data){
+		if(root==null){
+			root = new mynode(data);
+			return true;	
+		}
+		Queue<mynode> nodes = new LinkedList<mynode>();
+		nodes.offer(root);
+		mynode temp;
+		while(!isEmpty(nodes)){
+			temp = nodes.poll();
+			if(temp.left == null || temp.right==null){
+				if(temp.left == null)
+					temp.left = new mynode(data);
+				else temp.right = new mynode(data);
+				return true;			
+			}
+			else{
+				nodes.offer(temp.left);
+				nodes.offer(temp.right);			
+			}
+					
+		}
+		return false;
+	}
+	public static boolean find(int data){
+		Queue<mynode> nodes = new LinkedList<mynode>();
+		nodes.offer(root);
+		mynode temp;
+		while(!isEmpty(nodes)){
+			temp = nodes.poll();
+			if(temp.value == data) return true;
+			if(temp.left !=null) nodes.offer(temp.left);
+			if(temp.right !=null) nodes.offer(temp.right);					
+		}
+		return false;
+	}
+	public static void delete(int data){
+		del(root,data);
+	}
+	public static mynode del(mynode node, int data){
+		if(node==null) return null;
+		if(node.value == data){
+			if(node.right==null) return node.left;
+			mynode temp = findSmallest(node.right);
+			temp.left = node.left;
+			temp.right = node.right;
+			return temp;
+		}
+		node.left = del(node.left,data);
+		node.right = del(node.right,data);
+		return node;	
+	}
+	public static mynode findSmallest(mynode node){
+		mynode parent = node;
+		while(node.left !=null){
+			parent = node;
+			node = node.left;
+		}
+		parent.left = node.right;
+		return node;
+	}
+	/*public static int getRandomNode(){
+	
+	}*/
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+public class mynode{
+
+	public int value;
+	public mynode left,right;
+	
+	public mynode(int value){
+		this.value = value;
+		left = null;
+		right = null;	
+	}
+}
+

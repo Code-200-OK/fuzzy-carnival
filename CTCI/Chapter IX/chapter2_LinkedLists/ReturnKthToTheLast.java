@@ -1,0 +1,26 @@
+package chapter2_LinkedLists;
+public class ReturnKthToTheLast {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ListNode head = new LinkedListt(new int[]{1,2,3,4,5,6,7,8}).getHead();
+		System.out.println(findKFromLast(head,2));
+	}
+	public static int findKFromLast(ListNode head, int k){
+		if(head == null) return -1;
+		ListNode fast = head;
+		int fastpos = 0;
+		while(fastpos < k && fast.next != null){
+			fast = fast.next;
+			fastpos++;
+		}
+		if(fastpos != k) return -1;
+		ListNode slow = head;
+		while(fast.next != null){
+			fast = fast.next;
+			slow = slow.next;		
+		}
+		return slow.val;
+	}
+
+}

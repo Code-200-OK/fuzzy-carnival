@@ -1,0 +1,86 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Hello {
+	static Log root = new Log("");
+	static List<String> levels = Arrays.asList("Year","Month","Day","Hour","Minute","Second");
+	static List<Integer> answer;
+	static int[] indexes = {5,8,11,14,17,20};
+	public Hello() {
+		root = new Log("");
+	}
+	public static String[] extract(String timestamp){
+		int[] ans = new int[6];
+		String[] parts = timestamp.split(":");
+
+		return parts;
+	}
+
+	public static void put(int id, String timestamp) {
+		String[] parts = extract(timestamp);
+		int cur = 0;
+		Log node = root;
+		while(cur < 6){
+			if(!node.children.containsKey(parts[cur]))
+				node.children.put(parts[cur], new Log(parts[cur]));
+			node = node.children.get(parts[cur]);
+			cur++;
+		}
+		node.children.put(Integer.toString(id), new Log(Integer.toString(id)));
+
+	}
+	public static void traverse(Log node){
+		if(node == null) return;
+		System.out.println(node.data);
+		for(Map.Entry<String, Log> e: node.children.entrySet()){
+			traverse(e.getValue());
+		}
+	}
+	public static void search(Log node,String s, String t, int curLevel, int destLevel, StringBuilder pre){
+		if(curLevel>-1 && curLevel<=destLevel && 
+				(pre.toString().compareTo(s.substring(0,indexes[curLevel]))<0 || 
+						pre.toString().compareTo(t.substring(0,indexes[curLevel]))>0)) return;
+		int l = pre.length();
+		for(Map.Entry<String, Log> e: node.children.entrySet()){
+			if(curLevel==5)	answer.add(Integer.parseInt(e.getKey()));
+			else{
+				pre.append(":");
+				pre.append(e.getKey());
+				search(e.getValue(),s,t,curLevel+1,destLevel,pre);
+				pre.setLength(l);
+			}
+		}
+	}
+	public static List<Integer> retrieve(String s, String t, String stype){
+		answer = new ArrayList<Integer>();
+		search(root,":"+s,":"+t,-1,levels.indexOf(stype),new StringBuilder());
+		return answer;
+	}
+	public static void main(String[] args){
+		/*put(1, "2017:01:01:23:59:59");
+		put(2, "2017:01:02:23:59:59");
+		System.out.println(retrieve("2017:01:02:23:59:59","2017:01:02:23:59:59","Second"));*/
+		put(1, "2017:01:01:23:59:59");
+		put(2, "2017:01:01:22:59:59");
+		put(3, "2016:01:01:00:00:00");
+		//traverse(root);
+		System.out.println(retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Hour"));
+		//System.out.println(retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Hour"));
+		//put(1,"2017:01:01:23:59:59");
+		//put(2,"2003:12:12:20:30:51");
+		//traverse(root);
+		//System.out.println(retrieve("2017:01:01:23:59:58","2017:01:01:23:59:58","Second"));
+	}
+}
+
+class Log{
+	Map<String,Log> children;
+	String data;
+	public Log(String d){
+		data=d;
+		children = new TreeMap<String,Log>();
+	}
+}

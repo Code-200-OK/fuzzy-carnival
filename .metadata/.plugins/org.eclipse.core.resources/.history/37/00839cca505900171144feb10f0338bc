@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Hello {    
+	public static void main(String[] args){
+		char[] a = {};
+		String[] b = {};
+		int[] c = {};
+		int[][] d = {
+				{100,200},
+				{200,1300},
+				{1000,1250},
+				{2000,3200}
+		};
+		
+
+	}
+	public static void show(int[][] a){
+		for(int i=0;i<a.length;i++){
+			System.out.println(a[i][0]+"::::::"+a[i][1]);
+		}
+	}
+	public static int task(int[][] a){
+		Arrays.sort(a,new Comparator<int[]>(){
+			public int compare(int[] a, int[] b){
+				if(a[1]==b[1]){
+					return a[0]-b[0];
+				}
+				return a[0]-b[1];
+			}
+		});
+		show(a);
+		int current = 1;
+		for(int i=0;i<a.length;i++){
+			if()
+		}
+		return 5;
+	}
+}
+

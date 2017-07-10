@@ -1,0 +1,71 @@
+package chapter3_Stacks_Queues;
+
+import java.util.Stack;
+
+public class MinStack extends Stack<Integer>{
+	private int min;
+	public MinStack(){
+		min = -1;
+	}
+	public void push(int item){
+		if(isEmpty()){
+			min = item;
+			System.out.println("Pushed -1");
+			super.push(-1);		
+		}
+		else if(item < min){
+			System.out.println("Push:"+(item-min));
+			super.push(item-min);
+			min = item;		
+		}
+		else{
+			System.out.println("Push:"+(item-min));
+			super.push(item-min);	
+		}	
+	}
+	public Integer peek(){
+		if(isEmpty()) return Integer.MAX_VALUE;
+		int top = super.peek();
+		if(top<0){
+			return min;		
+		}
+		else{
+			return top + min;		
+		}	
+	}
+	public Integer pop(){
+		if(isEmpty()) return Integer.MAX_VALUE;
+		//System.out.println(super.peek() + ":"+ super.pop());
+		int top = super.pop()-min;
+		int toreturn;
+		if(top<=0){
+			toreturn = min;
+			min -= top;
+			return toreturn;		
+		}
+		else{
+			return top + min;		
+		}
+	}
+	public int min() throws Exception{
+		if(isEmpty()) throw new Exception("Empty Stack");
+		return min;
+	}
+
+	public static void main(String[] args) {
+		MinStack obj = new MinStack();
+		try{
+			obj.push(2);
+			obj.push(10);
+			System.out.println(obj);
+			while(!obj.isEmpty()){
+				System.out.println(obj.min());
+				System.out.println(obj.pop());
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+}

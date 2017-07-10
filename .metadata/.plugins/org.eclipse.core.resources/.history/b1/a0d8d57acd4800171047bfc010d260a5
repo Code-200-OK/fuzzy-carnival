@@ -1,0 +1,17 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Hello {
+	public static void main(String[] args){
+		
+	}
+	public boolean canPlaceFlowers(int[] flowerbed, int n) {
+		Map<String,List<String>> dir = new HashMap<>();
+	}
+    public int howmany(int num){
+        if(num%2==0) return  num/2;
+        else return num/2 +1;
+    }
+}
+

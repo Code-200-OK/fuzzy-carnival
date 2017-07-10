@@ -1,0 +1,47 @@
+
+public class Intersection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ListNode head = new LinkedListt(new int[]{}).getHead();
+		ListNode s1 = new ListNode(5);
+		ListNode s2 = new ListNode(6);
+		s1.next = s2;
+		s2.next = head;
+		ListNode t1 = new ListNode(5);
+		t1.next = head;
+		LinkedListt obj = new LinkedListt();
+		obj.show(s1);
+		obj.show(t1);
+		obj.show(inter(s1,t1));
+		
+		
+	}
+	public static ListNode inter(ListNode one, ListNode two){
+		if(one==null && two==null) return null;
+		if(one==null || two==null) return null;
+		ListNode tone = one;
+		ListNode ttwo = two;
+		while(tone!=null && ttwo!=null){
+			if(tone==ttwo) return tone;
+			tone = tone.next;
+			ttwo = ttwo.next;		
+		}
+		if(tone==null && ttwo==null) return null;
+		if(tone==null) tone = two;
+		if(ttwo==null) ttwo = one;
+		while(tone!=null && ttwo!=null){
+			tone = tone.next;
+			ttwo = ttwo.next;		
+		}
+		if(tone==null) tone = two;
+		if(ttwo==null) ttwo = one;
+		while(tone!=null && ttwo!=null){
+			if(tone==ttwo) return tone;
+			tone = tone.next;
+			ttwo = ttwo.next;		
+		}
+		return null;
+	}
+
+}

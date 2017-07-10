@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Hello {
+	public Hello(){
+		
+	}
+	public static void main(String[] args){
+		String a = "x+5-3+x=6+x-2"
+		int lhs;
+		int rhs;
+		String left = a.split("=")[0];
+		String right = a.split("=")[1];
+		
+	}
+}

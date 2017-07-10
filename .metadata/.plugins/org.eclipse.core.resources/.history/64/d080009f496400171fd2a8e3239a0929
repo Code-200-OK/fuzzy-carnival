@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Hello {
+	public Hello(){
+		
+	}
+	public static void main(String[] args){
+		String a = "x+5-3+x=6+x-2";
+		int lhs = 0;
+		int rhs = 0;
+		String left = a.split("=")[0];
+		String right = a.split("=")[1];
+		String[] parts = left.split("+");
+		String[] sparts;
+		for(int i=0;i<parts.length;i++){
+			sparts = parts[i].split("-");
+			for(int j=0;j<sparts.length;j++){
+				if(j==0 && parts[i].charAt(0)=='-'){
+					if(sparts[i].indexOf("x")==-1){
+						// no x
+						rhs += Integer.parseInt(sparts[i]);
+					}
+					else{
+						lhs -= Integer.parseInt(sparts[i].substring(0, sparts[i].length()-1));
+					}
+				}
+			}
+		}
+		
+	}
+}

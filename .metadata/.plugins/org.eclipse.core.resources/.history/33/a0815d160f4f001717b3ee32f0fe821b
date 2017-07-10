@@ -1,0 +1,19 @@
+
+public class DeleteMiddleNode {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+	public static void remove(ListNode middle){
+		ListNode tail = middle;
+		ListNode cur = middle.next;
+		while(cur != null){
+			tail.val = cur.val;
+			tail= cur;
+			cur = cur.next;		
+		}
+		tail.next = null;	
+	}
+
+}

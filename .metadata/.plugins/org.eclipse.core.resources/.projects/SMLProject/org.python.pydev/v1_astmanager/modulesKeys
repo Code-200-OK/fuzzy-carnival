@@ -1,0 +1,14 @@
+MODULES_MANAGER_V2
+SplitAfterTF|/home/jatsakthi/workspace/SMLProject/SplitAfterTF.py
+attempt|/home/jatsakthi/workspace/SMLProject/attempt.py
+kmeans|/home/jatsakthi/workspace/SMLProject/kmeans.py
+multiNominal|/home/jatsakthi/workspace/SMLProject/multiNominal.py
+nambi|/home/jatsakthi/workspace/SMLProject/nambi.py
+pplot|/home/jatsakthi/workspace/SMLProject/pplot.py
+songs200BOW|/home/jatsakthi/workspace/SMLProject/songs200BOW.py
+songs200TFIDF|/home/jatsakthi/workspace/SMLProject/songs200TFIDF.py
+songsKFoldTFIDF|/home/jatsakthi/workspace/SMLProject/songsKFoldTFIDF.py
+songsKFoldTFIDFPre|/home/jatsakthi/workspace/SMLProject/songsKFoldTFIDFPre.py
+songsSplitTFIDF|/home/jatsakthi/workspace/SMLProject/songsSplitTFIDF.py
+tr|/home/jatsakthi/workspace/SMLProject/tr.py
+writeFromCSVtoText|/home/jatsakthi/workspace/SMLProject/writeFromCSVtoText.py

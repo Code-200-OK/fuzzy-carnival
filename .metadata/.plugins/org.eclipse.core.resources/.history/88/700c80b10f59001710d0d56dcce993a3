@@ -1,0 +1,10 @@
+package chapter3_Stacks_Queues;
+
+public class MinStack {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

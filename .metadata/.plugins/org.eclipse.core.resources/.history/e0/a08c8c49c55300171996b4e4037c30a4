@@ -1,0 +1,100 @@
+import java.util.Arrays;
+import java.util.TreeMap;
+
+public class Hello {    
+	public static void main(String[] args){
+		int[] a = {2,2,4,4,4,4,4,10};
+		// binary search gives the next biggest number
+		System.out.println(find(a,3));
+
+	}
+	public static int find(int[] nums, int target){
+        int left = 0;
+        int right = nums.length -1;
+        int mid;
+        while(left<=right){
+            mid = (left+right)/2;
+            //if(nums[mid]==target) return mid;
+            if(nums[mid]>=target) right = mid-1;
+            else left = mid+1;
+        }
+        return left;
+    }
+	public static int triangleNumber(int[] nums) {
+        if(nums==null || nums.length==0) return 0;
+        Arrays.sort(nums);
+        
+        //System.out.println();
+        int total = 0;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                // binary search
+                int k= find(nums,nums[i]+nums[j])-1;
+                //System.out.println(k+":"+nums[k]+"--For--"+nums[i]+"-->"+nums[j]);
+                if(k>j && k<= nums.length-1){
+                	//System.out.println("Add:"+(k-j));
+                    total += (k-j);
+                }
+            }
+        }
+        return total;
+    }
+	public static int fact(int a){
+		return a*(a+1)/2;
+	}
+	public static boolean isValid(int a, int b, int c){
+		return (a+b > c) && (a+c > b) && (b+c > a);
+	}
+	/*public static void find(){
+        if(t1==null && t2==null) return null;
+        if(t1==null || t2==null){
+            TreeNode node = t1==null? t2:t1;
+            return node;
+        }
+        TreeNode node = t1;
+        node.val += t2.val;
+        node.left = mergeTrees(t1.left,t2.left);
+        node.right = mergeTrees(t1.right,t2.right);
+        return node;
+    }
+	public StringIterator(String compressedString) {
+        old = compressedString;
+        cc = ' ';
+        count = 0;
+        curpos = -1;
+    }
+
+    public char next() {
+        if(count>0){
+            count--;
+            if(hasNext()){
+                if(count>0) count--;
+                else{
+                curpos++;
+                cc = compressedString.charAt(curpos);
+                curpos++;
+                int temp = 0;
+                while(Character.isDigit(compressedString.charAt(curpos))){
+                    temp = temp*10 + Character.getNumericValue(compressedString.charAt(curpos));
+                    curpos++;
+                } 
+                count = temp;
+                }
+                return cc;
+            }
+            return ' ';
+
+        }
+
+    }
+
+    public boolean hasNext() {
+        if(count > 0) return true;
+        int t = curpos +1;
+        if(t<= compressedString.length()-1){
+            return true;
+        }
+        return false;
+    }*/
+}
+

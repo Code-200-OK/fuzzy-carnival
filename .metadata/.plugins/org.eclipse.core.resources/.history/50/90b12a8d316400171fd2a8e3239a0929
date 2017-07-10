@@ -1,0 +1,18 @@
+package chapter5_Bit_Manipulation;
+
+public class Insertion {
+	
+	public static int find(int n, int m,int i, int j){
+		int mask = (j<31?(-1 << (j+1)):0)|((1<<i)-1);
+		n &= mask;
+		n |= m;
+		return n;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(1>>32);
+	}
+
+}

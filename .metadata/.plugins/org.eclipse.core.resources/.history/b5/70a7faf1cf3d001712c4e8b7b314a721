@@ -1,0 +1,97 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class Hello {
+	static char[] tt;
+	static int start;
+	public static void main(String[] args) {
+		String a = "-1/2+1/2";
+		tt = a.toCharArray();
+		start = 0;
+		System.out.println(find(a));	
+		}
+	public static int gcd(int a, int b)
+	{
+	    while (b > 0)
+	    {
+	        int temp = b;
+	        b = a % b; // % is remainder
+	        a = temp;
+	    }
+	    return a;
+	}
+public static void display(int[] a){
+	System.out.println();
+	for(int i=0;i<a.length;i++){
+		System.out.print(a[i]+"::::");
+	}
+	System.out.println();
+}
+private static String find(String a) {
+		// TODO Auto-generated method stub
+		int[] left = extract();
+		//display(left);
+		//System.out.println("GOT LEFT");
+		int[] right = new int[3];
+		while(start<tt.length){
+			//System.out.println(start);
+			right = extract();
+			//display(right);
+			left = operate(left,right);
+		}
+		StringBuilder ans = new StringBuilder();
+		if(left[2]<0)
+		ans.append("-");
+		ans.append(left[0]);
+		ans.append("/");
+		ans.append(left[1]);
+		System.out.println(gcd(4,12));
+		return ans.toString();
+	}
+public static int[] extract(){
+	int cur = start;
+	int[] ret = new int[3];
+	if(tt[cur]=='-'){
+		ret[2] = -1;
+		cur++;
+	}
+	else{ 
+		ret[2] = 1;
+		if(start>0) cur++;
+	}
+	int num = 0;
+	//System.out.println("CHECK"+cur);
+	while(tt[cur]!='/'){
+		num *= 10;
+		num += Character.getNumericValue(tt[cur]);
+		cur++;
+	}
+	cur++;
+	ret[0] = num;
+	//System.out.println(num);
+	//System.out.println(cur);
+	num = 0;
+	while(cur<tt.length && tt[cur]!='+' && tt[cur]!='-'){
+		num *= 10;
+		num += Character.getNumericValue(tt[cur]);
+		cur++;
+	}
+	ret[1] = num;
+	start = cur;
+	return ret;
+		
+}
+public static int[] operate(int[] left, int[] right) {
+	//display(left);
+	//display(right);
+	int[] ret = new int[3];
+	int num = (left[2]*left[0]*right[1])+(right[2]*right[0]*left[1]);
+	ret[2] = num <0 ? -1 : 1;
+	ret[0] = Math.abs(num);
+	ret[1] = left[1]*right[1];
+	//display(ret);
+	return ret;
+        
+    }
+
+}

@@ -1,0 +1,9 @@
+package javaSyntax;
+
+public class Bitwise {
+	public static void main(String[] args){
+		int x = -93242;
+		int count = 40;
+	}
+
+}

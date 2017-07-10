@@ -1,0 +1,56 @@
+package chapter3_Stacks_Queues;
+
+import java.util.Stack;
+
+public class MinStack {
+	Stack<Integer> items;
+	int min;
+	public MinStack(){
+		items = new Stack<>();
+		min = -1;
+	}
+	public void push(int item){
+		if(items.isEmpty()){
+			min = item;
+			items.push(-1);		
+		}
+		else if(item < min){
+			items.push(item-min);
+			min = item;		
+		}
+		else{
+			items.push(item);	
+		}	
+	}
+	public int peek(){
+		if(items.isEmpty()) throw new Exception("Empty Stack");
+		int top = items.peek();
+		if(top<0){
+			return min;		
+		}
+		else{
+			return top + min;		
+		}	
+	}
+	public int pop() throws Exception{
+		if(items.isEmpty()) throw new Exception("Empty Stack");
+		int top = items.pop();
+		int toreturn;
+		if(top<0){
+			toreturn = min;
+			min -= top;
+			return toreturn;		
+		}
+		else{
+			return top + min;		
+		}
+	}
+	public boolean isEmpty(){
+		return items.isEmpty();
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

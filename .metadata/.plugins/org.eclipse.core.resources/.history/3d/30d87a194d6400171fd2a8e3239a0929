@@ -1,0 +1,127 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Hello {
+	public Hello(){
+		
+	}
+	public static void main(String[] args){
+		String a = "x=6+x-2";
+		int lhs = 0;
+		int rhs = 0;
+		String left = a.split("=")[0];
+		String right = a.split("=")[1];
+		String[] parts = left.split("\\+");
+		String[] sparts;
+		for(int i=0;i<parts.length;i++){
+			if(parts[i].indexOf("-")==-1){
+				//+ve
+				if(parts[i].indexOf("x")==-1){
+					// no x
+					rhs -= Integer.parseInt(parts[i]);
+				}
+				else{
+					System.out.println(parts[i]);
+					if(parts[i].length()==1) lhs+= 1;
+					else lhs += Integer.parseInt(parts[i].substring(0, parts[i].length()-1));
+				}
+				
+			}
+			else{
+				// -ve hai
+				sparts = parts[i].split("-");
+				int start = 0;
+				if(parts[i].charAt(0)=='-'){
+					start = 1;
+				}
+				for(int j=start;j<sparts.length;j++){
+					System.out.println(j+"sfsdf"+sparts[j]);
+					if(j==start && start==0){
+						if(sparts[j].indexOf("x")==-1){
+							// no x
+							System.out.println("h");
+							rhs -= Integer.parseInt(sparts[j]);
+						}
+						else{
+							
+							if(parts[i].length()==1) lhs+= 1;
+							else lhs += Integer.parseInt(sparts[j].substring(0, sparts[j].length()-1));
+						}
+					}
+					else{
+						if(sparts[j].indexOf("x")==-1){
+							// no x
+							rhs += Integer.parseInt(sparts[j]);
+						}
+						else{
+							if(parts[i].length()==1) lhs-= 1;
+							else lhs -= Integer.parseInt(sparts[j].substring(0, sparts[j].length()-1));
+						}
+						
+					}
+					
+				}
+			}
+			
+		}
+		
+		parts = right.split("\\+");
+		for(int i=0;i<parts.length;i++){
+			if(parts[i].indexOf("-")==-1){
+				//+ve
+				if(parts[i].indexOf("x")==-1){
+					// no x
+					rhs += Integer.parseInt(parts[i]);
+				}
+				else{
+					System.out.println(parts[i]);
+					if(parts[i].length()==1) lhs-= 1;
+					else lhs -= Integer.parseInt(parts[i].substring(0, parts[i].length()-1));
+				}
+				
+			}
+			else{
+				// -ve hai
+				sparts = parts[i].split("-");
+				int start = 0;
+				if(parts[i].charAt(0)=='-'){
+					start = 1;
+				}
+				for(int j=start;j<sparts.length;j++){
+					System.out.println(j+"sfsdf"+sparts[j]);
+					if(j==start && start==0){
+						if(sparts[j].indexOf("x")==-1){
+							// no x
+							System.out.println("h");
+							rhs += Integer.parseInt(sparts[j]);
+						}
+						else{
+							
+							if(sparts[i].length()==1) lhs-= 1;
+							else lhs -= Integer.parseInt(sparts[j].substring(0, sparts[j].length()-1));
+						}
+					}
+					else{
+						if(sparts[j].indexOf("x")==-1){
+							// no x
+							rhs -= Integer.parseInt(sparts[j]);
+						}
+						else{
+							if(sparts[i].length()==1) lhs+= 1;
+							else lhs += Integer.parseInt(sparts[j].substring(0, sparts[j].length()-1));
+						}
+						
+					}
+					
+				}
+			}
+			
+		}
+		System.out.println(lhs);
+		System.out.println(rhs);
+		
+	}
+}

@@ -1,0 +1,38 @@
+
+public class ReturnKthToTheLast {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ListNode head = new ListNode(1);
+		ListNode one = new ListNode(2);
+		ListNode two = new ListNode(2);
+		ListNode thr = new ListNode(3);
+		ListNode fou = new ListNode(2);
+		ListNode fiv = new ListNode(1);
+		ListNode six = new ListNode(5);
+		head.next = one;
+		one.next = two;
+		two.next = thr;
+		thr.next = fou;
+		fou.next = fiv;
+		fiv.next = six;
+		System.out.println(findKFromLast(head,2));
+	}
+	public static int findKFromLast(ListNode head, int k){
+		if(head == null) return -1;
+		ListNode fast = head;
+		int fastpos = 0;
+		while(fastpos < k && fast.next != null){
+			fast = fast.next;
+			fastpos++;
+		}
+		if(fastpos != k) return -1;
+		ListNode slow = head;
+		while(fast.next != null){
+			fast = fast.next;
+			slow = slow.next;		
+		}
+		return slow.val;
+	}
+
+}

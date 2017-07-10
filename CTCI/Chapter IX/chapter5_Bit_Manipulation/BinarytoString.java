@@ -1,0 +1,48 @@
+package chapter5_Bit_Manipulation;
+
+// 0.625 -> 0.101
+public class BinarytoString {
+	public static String convert(Double d){
+		if(d>=1 || d<=0) return "Error";
+		StringBuilder ans = new StringBuilder(".");
+		while(d>0){
+			if(ans.length() > 32) return "Error";
+			d *= 2;
+			if(d>=1){
+				ans.append("1");
+				d -= 1;			
+			}
+			else	ans.append("0");	
+		}
+		return ans.toString();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		short a = 5;
+		System.out.println(Short.MAX_VALUE);
+		System.out.println(Short.MIN_VALUE);
+		
+		System.out.println(Byte.MAX_VALUE);
+		System.out.println(Byte.MIN_VALUE);
+		
+		System.out.println(Character.MAX_VALUE);
+		System.out.println(Character.MIN_VALUE);
+		
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(Integer.MIN_VALUE);
+		
+		System.out.println(Long.MAX_VALUE);
+		System.out.println(Long.MIN_VALUE);
+		
+		System.out.println(Float.MAX_VALUE);
+		System.out.println(Float.MIN_VALUE);
+		
+		System.out.println(Double.MAX_VALUE);
+		System.out.println(Double.MIN_VALUE);
+		
+		
+		System.out.println(convert(0.625));
+		
+		System.out.println((double)2/3);
+	}
+}

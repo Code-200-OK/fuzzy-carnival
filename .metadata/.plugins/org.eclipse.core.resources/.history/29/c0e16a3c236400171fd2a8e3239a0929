@@ -1,0 +1,15 @@
+package javaSyntax;
+
+public class Bitwise {
+	public static void main(String[] args){
+		int x = -93242;
+		int count = 40;
+		for(int i=0;i<count;i++) x >>=1;
+		System.out.println(x);
+		x = -9342;
+		for(int i=0;i<count;i++) x >>>=1;
+		System.out.println(x);
+		
+	}
+
+}

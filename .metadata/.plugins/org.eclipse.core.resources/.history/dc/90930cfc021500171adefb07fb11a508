@@ -1,0 +1,11 @@
+
+
+
+if __name__ == "__main__":
+    HAPPY = 1
+    SAD = 0
+    
+    trainLocation = "/home/jatsakthi/SML/classification/Document Classification/Songs/Dataset/train_lyrics_1000.csv"
+    testLocation = "/home/jatsakthi/SML/classification/Document Classification/Songs/Dataset/valid_lyrics_200.csv"
+    
+    

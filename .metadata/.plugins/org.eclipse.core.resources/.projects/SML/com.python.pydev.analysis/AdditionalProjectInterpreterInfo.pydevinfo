@@ -1,0 +1,67 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/jatsakthi/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/SML/com.python.pydev.analysis/v2_indexcache
+all|1490509892056660000|/home/jatsakthi/workspace/SML/all.py
+news|1490576916805654000|/home/jatsakthi/workspace/SML/news.py
+spamSVM|1490607926546196000|/home/jatsakthi/workspace/SML/spamSVM.py
+SpamSVMSet|1490767433131496000|/home/jatsakthi/workspace/SML/SpamSVMSet.py
+spam|1491435213357535000|/home/jatsakthi/workspace/SML/spam.py
+ReutersParser|1490510342935296000|/home/jatsakthi/workspace/SML/ReutersParser.py
+-- END DISKCACHE
+-- START DICTIONARY
+11
+5=all
+6=news
+10=ReutersParser.__init__
+11=ReutersParser.handle_starttag
+2=spamSVM
+9=ReutersParser.parse
+1=SpamSVMSet
+8=ReutersParser.handle_endtag
+3=spam
+4=ReutersParser
+7=ReutersParser._reset
+-- END DICTIONARY
+-- START TREE 1
+28
+bui|3|build_data_frame!10@build_data_frame!18@build_data_frame!26@
+con|3|confusion!27@confusion!11@confusion!19@
+cre|4|create_tfidf_training_data!34@create_tfidf_training_data!10@create_tfidf_training_data!42@create_tfidf_training_data!18@
+dat|3|data!11@data!27@data!19@
+doc|2|docs!35@docs!43@
+fil|4|filter_doc_list_through_topics!42@filter_doc_list_through_topics!34@filename!35@files!43@
+ham|3|HAM!11@HAM!19@HAM!27@
+k_f|2|k_fold!27@k_fold!19@
+mai|2|main_test!50@main!50@
+new|3|NEWLINE!19@NEWLINE!27@NEWLINE!11@
+obt|2|obtain_topic_tags!42@obtain_topic_tags!34@
+par|2|parser!35@parser!43@
+pip|1|pipeline!27@
+pre|5|pred!19@pred!35@pred!11@pred!43@predictions!27@
+rea|3|read_files!18@read_files!26@read_files!10@
+ref|2|ref_docs!35@ref_docs!43@
+rem|1|remove_incompatible_files!50@
+reo|1|reorganize_dataset!50@
+reu|2|ReutersParser!41@ReutersParser!33@
+sco|5|score!27@scores!27@scores!19@score!19@score!11@
+ski|3|SKIP_FILES!11@SKIP_FILES!19@SKIP_FILES!27@
+sou|3|SOURCES!19@SOURCES!11@SOURCES!27@
+spa|3|SPAM!11@SPAM!27@SPAM!19@
+svm|4|svm!19@svm!11@svm!43@svm!35@
+tes|5|test_y!19@test_text!19@test_classifier!50@test_y!27@test_text!27@
+top|2|topics!43@topics!35@
+tot|2|tot!19@tot!11@
+tra|9|train_y!27@train_svm!26@train_text!27@train_svm!18@train_svm!34@train_svm!10@train_y!19@train_svm!42@train_text!19@
+-- END TREE
+-- START TREE 2
+9
+__i|2|__init__!4&42@__init__!4&34@
+_re|2|_reset!4&42@_reset!4&34@
+bod|4|body!7&43@body!8&43@body!7&35@body!8&35@
+doc|2|docs!9&35@docs!9&43@
+enc|2|encoding!10&43@encoding!10&35@
+han|6|handle_data!4&34@handle_endtag!4&42@handle_data!4&42@handle_endtag!4&34@handle_starttag!4&42@handle_starttag!4&34@
+in_|18|in_topics!7&35@in_topics!11&35@in_topics!8&35@in_topic_d!7&35@in_topic_d!11&35@in_topic_d!8&35@in_body!7&35@in_body!11&35@in_body!8&35@in_topic_d!7&43@in_topic_d!11&43@in_topic_d!8&43@in_body!7&43@in_body!11&43@in_body!8&43@in_topics!7&43@in_topics!11&43@in_topics!8&43@
+par|2|parse!4&42@parse!4&34@
+top|6|topic_d!7&43@topic_d!8&43@topic_d!7&35@topic_d!8&35@topics!7&43@topics!7&35@
+-- END TREE

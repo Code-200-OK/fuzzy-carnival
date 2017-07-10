@@ -1,0 +1,8 @@
+long thirtyDayInMillis = 30 * 24 * 60 * 60 * 1000
+it should return 2592000000 but returns -1702967296.
+thirtyDayInMillis = 30L * 24 * 60 * 60 * 1000 gives correct output.
+because By default, numeric literals in Java are ints. So the individual parts of 
+your first multiplication are ints, not longs, and so they're overflowing
+
+Src: http://stackoverflow.com/questions/20631220/multiplication-weird-output
+

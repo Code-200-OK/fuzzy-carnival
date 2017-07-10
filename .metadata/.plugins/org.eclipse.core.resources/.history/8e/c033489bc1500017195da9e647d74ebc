@@ -1,0 +1,12 @@
+
+public class LoopDetection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public static ListNode loop(ListNode){
+		
+	}
+
+}

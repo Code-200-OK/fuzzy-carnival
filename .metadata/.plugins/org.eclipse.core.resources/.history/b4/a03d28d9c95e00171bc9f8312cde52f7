@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Hello {
+    
+    public Hello() {
+    	
+    }
+    public static boolean judgeSquareSum(int c) {
+        if(c==0) return true;
+        Set<Integer> num = new HashSet<Integer>();
+        for(int i=0;i<=(int)Math.sqrt(c);i++){
+            num.add((int)Math.pow(i,2));
+        }
+        for(Integer i: num){
+            if(i*2 == c || num.contains(c-i)) return true;
+        }
+        return false;
+    }
+    public static void main(String[] args){
+    	System.out.println(judgeSquareSum(5));
+    }
+}
+class Second{
+	List<Integer> values;
+	public Second(){
+		values = new ArrayList<Integer>();
+	}
+	public void insert(int i){
+		values.add(i);
+	}
+}
+class Minute{
+	Second[] seconds;
+	public Minute(){
+		seconds = new Second[60];
+	}
+	public insert(int pos, int i){
+		if(seconds[pos-1]==null) seconds[pos-1] = new Second();
+	}
+}
+class Head{
+	
+}

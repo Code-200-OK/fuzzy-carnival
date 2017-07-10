@@ -1,0 +1,10 @@
+MODULES_MANAGER_V2
+NaiveBayesMovies|/home/jatsakthi/workspace/Sentimental Analysis/NaiveBayesMovies.py
+countAll|/home/jatsakthi/workspace/Sentimental Analysis/countAll.py
+downloadSongNames|/home/jatsakthi/workspace/Sentimental Analysis/downloadSongNames.py
+find|/home/jatsakthi/workspace/Sentimental Analysis/find.py
+nltkLearn|/home/jatsakthi/workspace/Sentimental Analysis/nltkLearn.py
+pos|/home/jatsakthi/workspace/Sentimental Analysis/pos.py
+revert|/home/jatsakthi/workspace/Sentimental Analysis/revert.py
+topsongs|/home/jatsakthi/workspace/Sentimental Analysis/topsongs.py
+twitterAnalysis|/home/jatsakthi/workspace/Sentimental Analysis/twitterAnalysis.py

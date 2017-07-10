@@ -1,0 +1,39 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+
+def create_tfidf_training_data(docs):
+    """
+    Creates a document corpus list (by stripping out the
+    class labels), then applies the TF-IDF transform to this
+    list. 
+
+    The function returns both the class label vector (y) and 
+    the corpus token/feature matrix (X).
+    """
+    # Create the training data class labels
+    y = [d[0] for d in docs]
+
+    # Create the document corpus list
+    corpus = [d[1] for d in docs]
+
+    # Create the TF-IDF vectoriser and transform the corpus
+    vectorizer = TfidfVectorizer(min_df=1)
+    X = vectorizer.fit_transform(corpus)
+    return X, y
+
+
+if __name__ == "__main__":
+    # Open the first Reuters data set and create the parser
+    filename = "data/reut2-000.sgm"
+    parser = ReutersParser()
+
+    # Parse the document and force all generated docs into
+    # a list so that it can be printed out to the console
+    docs = list(parser.parse(open(filename, 'rb')))
+
+    # Obtain the topic tags and filter docs through it 
+    topics = obtain_topic_tags()
+    ref_docs = filter_doc_list_through_topics(topics, docs)
+    
+    # Vectorise and TF-IDF transform the corpus 
+    X, y = create_tfidf_training_data(ref_docs)

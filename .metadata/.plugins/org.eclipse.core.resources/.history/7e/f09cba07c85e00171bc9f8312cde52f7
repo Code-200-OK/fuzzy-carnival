@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Hello {
+    
+    public Hello() {
+    	
+    }
+    public static void find(){
+    	
+    }
+    public static void main(String[] args){
+    	System.out.println((int)Math.sqrt(13));
+    }
+}

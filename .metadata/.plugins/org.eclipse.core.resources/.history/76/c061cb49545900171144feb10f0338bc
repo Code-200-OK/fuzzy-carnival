@@ -1,0 +1,122 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
+public class Hello {
+    private Map<String,List<String>> con;
+    private int[][] mat;
+    private Set<String> sumcells;
+    public Hello(int H, char W) {
+        con = new HashMap<>();
+        sumcells = new HashSet<String>();
+        mat = new int[H][W];
+    }
+    
+    public void set(int r, char c, int v) {
+        String rep = rep(r,c);
+        mat[r-1][c-'A'] = v;
+        if(sumcells.contains(rep)){
+            sumcells.remove(rep);
+            return;
+        }
+        Queue<String> trig = new LinkedList<>();
+        trig.offer(rep(r,c));
+        String cell = "";
+        while(!trig.isEmpty()){
+            cell = trig.poll();
+            if(con.containsKey(cell)){
+                List<String> next = con.get(cell);
+                for(String ncell: next){
+                    if(sumcells.contains(ncell)){
+                        addtocell(ncell,v);
+                        trig.offer(ncell);
+                    }
+                }
+            }
+        }
+    }
+    public void addtocell(String cell, int v){
+        int r = Integer.parseInt(cell.split(":")[0]);
+        int c = Integer.parseInt(cell.split(":")[1]);
+        mat[r][c] += v;
+    }
+    public String rep(int r, char c){
+        StringBuilder s = new StringBuilder();
+        s.append(r-1);
+        s.append(":");
+        s.append(c-'A');
+        return s.toString();
+    }
+    
+    public int get(int r, char c) {
+        return mat[r-1][c-'A'];
+    }
+    
+    public int sum(int r, char c, String[] strs) {
+        String rep = rep(r,c);
+        sumcells.add(rep);
+        int sum = 0;
+        for(String str: strs){
+            sum += handle(str,rep);
+        }
+        mat[r-1][c-'A'] = sum;
+        return sum;
+    }
+    public int singlehandle(int r, int c, String rep){
+        String myrep = rep(r+1,(char)('A'+c));
+        if(!con.containsKey(myrep)){
+            con.put(myrep,new ArrayList<String>());
+        }
+        con.get(myrep).add(rep);
+        return mat[r][c];
+    }
+    public int handle(String cell, String rep){
+        if(cell.indexOf(":")==-1){
+            int tlc = cell.charAt(0)-'A';
+            int tlr = Integer.parseInt(cell.substring(1))-1;
+            return singlehandle(tlr,tlc,rep); 
+        }
+        else{
+            String tl = cell.split(":")[0];
+            String br = cell.split(":")[1];
+            int tlc = tl.charAt(0)-'A';
+            int tlr = Integer.parseInt(tl.substring(1))-1;
+            int brc = br.charAt(0)-'A';
+            int brr = Integer.parseInt(br.substring(1))-1;
+            int sum = 0;
+            for(int i=tlr;i<=brr;i++){
+                for(int j=tlc;j<=brc;j++){
+                    sum += singlehandle(i,j,rep);
+                }
+            }
+            return sum;
+        }
+        
+    }
+    public static void main(String[] args){
+    	Hello obj = new Hello(5,'E');
+    	obj.set(1, 'A', 2);
+    	System.out.println(obj.get(1, 'A'));
+    	String[] input = new String[2];
+    	input[0]=("A1");
+    	input[1]=("A1:B2");
+    	obj.sum(3, 'C',input);
+    	System.out.println(obj.con);
+    	obj.set(2, 'B', 2);
+    	System.out.println(obj.get(3, 'C'));
+    	
+    }
+}
+
+/**
+ * Your Excel object will be instantiated and called as such:
+ * Excel obj = new Excel(H, W);
+ * obj.set(r,c,v);
+ * int param_2 = obj.get(r,c);
+ * int param_3 = obj.sum(r,c,strs);
+ */

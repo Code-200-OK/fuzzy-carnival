@@ -1,0 +1,65 @@
+import java.util.Arrays;
+import java.util.EmptyStackException;
+
+public class ThreeInOne {
+	private static int[] store;
+	private static int numOfStacks;
+	private static int[] top;
+	public ThreeInOne(int size,int num) throws Exception{
+		if(size<num || num==0) throw new Exception("Invalid Arguments");
+		store = new int[size];
+		numOfStacks = num;
+		top = new int[num];
+		Arrays.fill(top,-1);	
+	}
+	public static boolean isEmpty(int stackNumber) throws Exception{
+		return top[--stackNumber]==-1;	
+	}
+	public static int peek(int stackNumber) throws Exception{
+		if(isEmpty(stackNumber)) throw new Exception("Empty Stack");
+		return store[top[--stackNumber]];
+	}
+	public static void push(int stackNumber, int element) throws Exception{
+		stackNumber--;
+		if(stackNumber==numOfStacks-1 && top[stackNumber]==store.length-1) throw new Exception("Full Stack");
+		else if(top[stackNumber]==((store.length/numOfStacks)*(stackNumber+1))-1) throw new Exception("Full Stack");
+		if(isEmpty(stackNumber+1)){
+			top[stackNumber] = ((store.length/numOfStacks)*stackNumber);		
+		}
+		else top[stackNumber]++;
+		store[top[stackNumber]] = element;
+	}
+	public static int pop(int stackNumber) throws Exception{
+		if(isEmpty(stackNumber)) throw new Exception("Empty Stack");
+		int ret = -1;
+		if(top[--stackNumber]==(store.length/numOfStacks)*stackNumber){
+			int ret = store[top[stackNumber]];
+			top[stackNumber]=-1;
+		}
+		return store[--top[stackNumber]];
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try{
+		ThreeInOne obj = new ThreeInOne(10,3);
+		obj.push(2,2);
+		obj.push(2,3);
+		obj.push(1,5);
+		obj.push(3,6);
+		obj.push(1,7);
+		for(int i=1;i<=3;i++){
+			System.out.println("Stack contents of "+i);
+			while(!obj.isEmpty(i)){
+				System.out.print(obj.pop(i)+"<--");
+			}
+			System.out.println();
+		}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+
+	}
+
+}

@@ -1,0 +1,19 @@
+from pandas import DataFrame
+import pandas as pd
+import numpy as np
+
+
+def build_data_frame(path):
+    rows = []
+    index = []
+    df = pd.read_csv(path+'test.csv',usecols=['Name'])
+    print df
+if __name__ == "__main__":
+    HAPPY = 1
+    SAD = 0
+    
+    trainLocation = "/home/jatsakthi/SML/classification/Document Classification/Songs/Dataset/"
+    testLocation = "/home/jatsakthi/SML/classification/Document Classification/Songs/Dataset/valid_lyrics_200.csv"
+    
+    data = DataFrame({'text': [], 'class': []})
+    build_data_frame(trainLocation)

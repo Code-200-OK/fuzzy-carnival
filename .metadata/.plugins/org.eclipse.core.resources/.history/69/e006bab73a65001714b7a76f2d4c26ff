@@ -1,0 +1,29 @@
+package chapter5_Bit_Manipulation;
+
+public class NextNumber{
+	
+	public static int[] find(int n){
+		int[] ans = new int[2];
+		if(~n==0) return ans;
+		int mask = 1<<1;
+		while(mask>0){
+			System.out.println(Integer.toBinaryString(mask));
+			if((mask&n)==1){
+				mask >>= 1;
+				if((mask&n)==0){
+					ans[0] = (n | mask);
+					break;			
+				}
+				mask <<=1;			
+			}
+			mask <<=1;		
+		}
+		return ans;
+	}
+	public static void main(String[] args){
+		/*System.out.println("10000000000000000000000000000000");
+		int a = -1<<31;
+		a <<= 1;*/
+		System.out.println(find(5)[0]);
+	}
+}

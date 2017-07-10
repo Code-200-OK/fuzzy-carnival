@@ -1,0 +1,10 @@
+package chapter5_Bit_Manipulation;
+
+public class NextNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

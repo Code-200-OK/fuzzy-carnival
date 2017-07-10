@@ -1,0 +1,25 @@
+package chapter5_Bit_Manipulation;
+
+public class NextNumber{
+	
+	public int[] find(int n){
+		int[] ans = new int[2];
+		if(~n==0) return ans;
+		int mask = 1<<1;
+		while(mask!=1){
+			if((mask&n)==1){
+				mask >>= 1;
+				if((mask&n)==0){
+					ans[0] = (n | mask);
+					break;			
+				}
+				mask <<=1;			
+			}
+			mask <<=1;		
+		}
+		return ans;
+	}
+	public static void main(String[] args){
+		System.out.println(find(5)[0]);
+	}
+}

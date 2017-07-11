@@ -1,6 +1,25 @@
 package chapter5_Bit_Manipulation;
 
 public class NextNumber{
+
+	public static int getSmaller(int n){
+		
+		int c = n;
+		int c0=0,c1=0;
+		while(c!=0 && (c&1)==1){
+			c1++;
+			c >>= 1;		
+		}
+		while(c!=0 && (c&1)==0){
+			c0++;
+			c >>= 1;		
+		}
+		int p = c0+c1; // zero based
+		if(c0==0) return -1;
+		n &= (~0<<(p+1));
+		n |= ((1<<(c1+1))-1)<<(c0-1);
+		return n;
+	}
 	
 	public static int[] find(int n){
 		int[] ans = new int[2];
@@ -36,7 +55,6 @@ public class NextNumber{
 	}
 	public static void main(String[] args){
 		int[] a= find(6);
-		System.out.println(a[0]);
-		System.out.println(a[1]);
+		System.out.println(getSmaller(9));
 	}
 }
